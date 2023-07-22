@@ -1,5 +1,7 @@
-import { lobster, pretendard } from "./fonts";
-import "./globals.css";
+import Navigation from "@/components/Navigation";
+import { pretendard } from "../styles/fonts";
+import "../styles/globals.css";
+import { useRouter } from "next/navigation";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,11 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body
-        className={`${pretendard.className} bg-neutral-950 text-neutral-50`}
+        className={`${pretendard.className} bg-neutral-950 text-neutral-50 dark`}
       >
-        <nav className={lobster.className}>imianio</nav>
+        <Navigation />
         {children}
       </body>
     </html>
