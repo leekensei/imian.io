@@ -79,3 +79,7 @@
     @apply max-w-screen-xl m-auto p-4;
   }
 }
+
+body {
+  min-height: 100dvh;
+}

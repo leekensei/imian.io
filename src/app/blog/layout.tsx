@@ -3,10 +3,5 @@ export default function BlogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <main className="layout">
-      blog layout
-      {children}
-    </main>
-  );
+  return <main className="layout">{children}</main>;
 }
