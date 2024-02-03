@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR, Noto_Sans, Lobster } from "next/font/google";
+import { Noto_Sans_KR, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Header from "@/components/header";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const lobster = Lobster({ weight: "400", subsets: ["latin"] });
 const notoKR = Noto_Sans_KR({ subsets: ["latin"] });
 const noto = Noto_Sans({ subsets: ["latin"] });
 
@@ -19,8 +20,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={cn(lobster.className, notoKR.className, noto.className)}>
-        {children}
+      <body className={cn(notoKR.className, noto.className)}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
