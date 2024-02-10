@@ -2,9 +2,10 @@ import React, { ReactNode } from "react";
 import Logo from "./logo";
 import { ModeToggle } from "./mode-toggle-button";
 import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { Github, Search } from "lucide-react";
 import Link from "next/link";
+import { MobileMenu } from "./mobile-menu";
 
 const MenuLink = ({
   href,
@@ -13,16 +14,25 @@ const MenuLink = ({
   href: string;
   contents: ReactNode;
 }) => (
-  <Button variant={"link"} asChild>
+  <Button variant={"ghost"} asChild>
     <Link href={href} className="text-lg font-semibold capitalize">
       {contents}
     </Link>
   </Button>
 );
 
+const Menu = ({ className }: { className?: string }) => {
+  return (
+    <div className={cn("flex gap-4 flex-col sm:flex-row", className)}>
+      <MenuLink href="/" contents="post" />
+      <MenuLink href="/" contents="article" />
+    </div>
+  );
+};
+
 const GitHubLink = () => (
   <Button size="icon" variant={"ghost"} asChild>
-    <Link href="/">
+    <Link href="https://github.com/leekensei">
       <Github className="h-[1.2rem] w-[1.2rem] scale-100 transition-all" />
     </Link>
   </Button>
@@ -32,18 +42,8 @@ const SearchButton = () => (
     <Search className="h-[1.2rem] w-[1.2rem] scale-100 transition-all" />
   </Button>
 );
-
-const Menu = () => {
-  return (
-    <div className="menu flex gap-4">
-      <MenuLink href="/" contents="article" />
-      <MenuLink href="/" contents="article" />
-      <MenuLink href="/" contents="article" />
-    </div>
-  );
-};
 const SideButtons = () => (
-  <div className="buttons flex gap-2">
+  <div className="justify-center buttons flex gap-2">
     <GitHubLink />
     <ModeToggle />
     <SearchButton />
@@ -62,9 +62,17 @@ const Header = () => {
     <header className={styles}>
       <Logo />
 
-      <div className="flex gap-8">
+      <div className="hidden sm:flex gap-8">
         <Menu />
         <SideButtons />
+      </div>
+      <div className="block sm:hidden">
+        <MobileMenu>
+          <div className="p-2">
+            <SideButtons />
+            <Menu className="mt-[20px]" />
+          </div>
+        </MobileMenu>
       </div>
     </header>
   );
