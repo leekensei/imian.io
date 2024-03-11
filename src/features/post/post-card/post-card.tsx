@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/features/ui/card";
 import { PostCardProps } from "./types";
+import Link from "next/link";
 
 const Title = ({ children }: { children: React.ReactNode }) => (
   <CardHeader>
@@ -16,7 +17,7 @@ const Title = ({ children }: { children: React.ReactNode }) => (
 );
 const Description = ({ children }: { children: React.ReactNode }) => (
   <CardContent>
-    <p>{children}</p>
+    <p className="line-clamp-3">{children}</p>
   </CardContent>
 );
 const PostDate = ({ children }: { children: React.ReactNode }) => (
@@ -25,13 +26,15 @@ const PostDate = ({ children }: { children: React.ReactNode }) => (
   </CardFooter>
 );
 
-const PostCard = ({ title, description, date }: PostCardProps) => {
+const PostCard = ({ title, href, description, date }: PostCardProps) => {
   return (
-    <Card className="border-transparent shadow-none hover:shadow-sm hover:border-inherit">
-      <Title>{title}</Title>
-      <Description>{description}</Description>
-      <PostDate>{date.toISOString()}</PostDate>
-    </Card>
+    <Link href={href} className="outline-none">
+      <Card className="border-transparent shadow-none hover:shadow-sm hover:border-inherit focus:shadow-sm focus:border-inherit">
+        <Title>{title}</Title>
+        <Description>{description}</Description>
+        <PostDate>{date.toISOString()}</PostDate>
+      </Card>
+    </Link>
   );
 };
 
