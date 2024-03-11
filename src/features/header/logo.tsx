@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Lobster } from "next/font/google";
-import { cn } from "@/lib/utils";
+import { cn } from "@/features/utils";
 
 const lobster = Lobster({ weight: "400", subsets: ["latin"] });
 

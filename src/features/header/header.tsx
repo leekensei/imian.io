@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react";
 import Logo from "./logo";
 import { ModeToggle } from "./mode-toggle-button";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/features/utils";
+import { Button } from "@/features/ui/button";
 import { Github, Search } from "lucide-react";
 import Link from "next/link";
 import { MobileMenu } from "./mobile-menu";
