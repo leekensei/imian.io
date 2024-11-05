@@ -1,16 +1,19 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
+
 import { GitHubLogoIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
-import { SideDialogContent } from "@/components/ui/side-dialog";
 import {
   Dialog,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { SideDialogContent } from "@/components/ui/side-dialog";
+
 import { ModeToggle } from "../mode-toggle";
 
 const Logo = ({ domain }: { domain: string }) => (
@@ -77,9 +80,9 @@ const MobileNav = ({
 );
 
 const items = [
-  { disabled: false, href: "/post", title: "post" },
-  { disabled: false, href: "/book", title: "book" },
-  { disabled: false, href: "/log", title: "log" },
+  { disabled: false, href: "/blog/post", title: "post" },
+  { disabled: false, href: "/blog/book-review", title: "book" },
+  { disabled: false, href: "/blog/log", title: "log" },
 ];
 
 export function MainNav() {

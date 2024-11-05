@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
+
 import { Lobster, Noto_Sans_KR } from "next/font/google";
+
 import "./globals.css";
-import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+
+import { cn } from "@/lib/utils";
+
 
 const noto = Noto_Sans_KR({ subsets: ["latin"] });
 const lobster = Lobster({

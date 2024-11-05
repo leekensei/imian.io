@@ -10,7 +10,7 @@ export default function Layout({
       <header className="w-full z-40 sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <MainNav />
       </header>
-      <main className="min-h-screen">{children}</main>
+      <main className="min-h-screen bg-background">{children}</main>
     </div>
   );
 }
