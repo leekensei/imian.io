@@ -1,5 +1,3 @@
-import type { PostCard } from "../types";
-
 import { SquareCard } from "../card";
 
 export default function SquareCardList({ posts }: { posts: PostCard[] }) {

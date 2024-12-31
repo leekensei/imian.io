@@ -1,7 +1,6 @@
 import { CalendarDays, Clock } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-
-import type { PostCard } from "../types";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,7 +11,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-
 export const RowCard = (props: PostCard) => (
   <Card
     key={props.id}
@@ -22,7 +20,7 @@ export const RowCard = (props: PostCard) => (
       <div className="flex flex-col md:flex-row">
         <div className="flex-grow pr-6">
           <div>
-            <Link href={`/blog/${props.slug}`}>
+            <Link href={`/blog/posts/${props.slug}`}>
               <h2 className="text-2xl font-semibold mb-2 line-clamp-2 hover:underline">
                 {props.title}
               </h2>
@@ -68,18 +66,13 @@ export const RowCard = (props: PostCard) => (
         {props.coverImage && (
           <div className="hidden md:block md:mt-0 md:flex-shrink-0">
             <div className="relative w-full overflow-hidden rounded-sm md:w-[200px] h-[150px] md:h-[200px]">
-              {/* <coverImage
-            src={props.image}
-            alt={props.title}
-            fill
-            className="object-cover rounded-md"
-            sizes="(max-width: 768px) 100vw, 200px"
-          /> */}
-              <img
-                src={props.coverImage}
-                alt={props.title}
-                className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
-              />
+              {props.coverImage && (
+                <Image
+                  src={props.coverImage}
+                  alt={props.title}
+                  className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                />
+              )}
             </div>
           </div>
         )}

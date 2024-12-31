@@ -1,5 +1,3 @@
-import type { PostCard } from "../types";
-
 import { GridCard } from "../card";
 
 export default function GridCardList({ posts }: { posts: PostCard[] }) {

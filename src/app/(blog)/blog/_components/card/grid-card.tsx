@@ -1,7 +1,5 @@
 import { CalendarDays, Clock } from "lucide-react";
 
-import type { PostCard } from "../types";
-
 import { Badge } from "@/components/ui/badge";
 import {
   Card,

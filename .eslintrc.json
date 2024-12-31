@@ -3,6 +3,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "ignorePatterns": ["next.config.mjs"],
   "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
   "plugins": ["import", "@typescript-eslint"],
   "rules": {
