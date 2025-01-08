@@ -2,8 +2,6 @@ import { CalendarDays } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import type { PostCard } from "../types";
-
 import {
   Card,
   CardContent,

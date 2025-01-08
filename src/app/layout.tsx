@@ -4,7 +4,8 @@ import { Lobster, Noto_Sans_KR } from "next/font/google";
 
 import "./globals.css";
 
-import Providers from "@/components/providers/providers";
+import Providers from "@/components/providers";
+
 import { cn } from "@/lib/utils";
 
 const noto = Noto_Sans_KR({ subsets: ["latin"] });
@@ -25,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <body className={cn(lobster.variable, noto.className)}>
         <Providers>{children}</Providers>
       </body>
