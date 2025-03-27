@@ -1,5 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
+import CodeBlock from "@/components/code-block";
+import React from "react";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -31,11 +33,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </Link>
     ),
-    pre: ({ children }) => (
-      <pre className="my-3 md:my-4 p-3 md:p-4 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-x-auto text-sm md:text-base">
-        {children}
-      </pre>
-    ),
+    pre: ({ children }) => {
+      if (React.isValidElement(children)) {
+        const language =
+          children.props?.className?.replace("language-", "") || "plaintext";
+        const code = children.props?.children || "";
+        return <CodeBlock language={language}>{code}</CodeBlock>;
+      }
+      return <pre>{children}</pre>;
+    },
     code: ({ children }) => (
       <code className="!bg-gray-100 dark:!bg-gray-800 px-1 py-0.5 rounded text-sm md:text-base">
         {children}

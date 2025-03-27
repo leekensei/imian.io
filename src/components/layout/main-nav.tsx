@@ -18,7 +18,7 @@ import { ModeToggle } from "../mode-toggle";
 
 const Logo = ({ domain }: { domain: string }) => (
   <Link href={`/${domain}`} className="flex items-baseline space-x-2">
-    <h1 className="font-lobster text-2xl md:text-3xl lg:text-4xl">imianio</h1>
+    <h1 className="font-lobster text-2xl md:text-3xl lg:text-4xl">iamiandev</h1>
     <span className="font-bold text-xs md:text-sm lg:text-base uppercase">
       {domain}
     </span>
